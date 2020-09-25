@@ -10,7 +10,11 @@
       <th>Course Number</th>
       <th>Course Name</th>
     </tr>
-  
+    <!--<tr v-for="course in courses">
+      <td>{{course.number}}</td>
+      <td>{{course.name}}</td>
+      </tr>
+      -->
   </table>
 
 </div>
