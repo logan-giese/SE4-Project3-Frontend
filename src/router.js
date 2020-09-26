@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import courselist from "./components/courselist.vue";
+import List from "./views/courselist.vue";
 import courseadd from "./components/courseadd.vue";
 
 Vue.use(Router);
@@ -13,7 +13,7 @@ export default new Router ({
     routes: [{
         path: "/",
         name: "list",
-        component: courselist
+        component: List
     },
     {
         path:"/add",
