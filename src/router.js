@@ -8,7 +8,7 @@ Vue.use(Router);
 
 export default new Router ({
     mode: "history",
-    base: process.env.NODE_ENV === "development" ? "/" : "/courses/",
+    base: process.env.NODE_ENV === "development" ? "/" : "/mycourses-vue/",
     
     routes: [{
         path: "/",

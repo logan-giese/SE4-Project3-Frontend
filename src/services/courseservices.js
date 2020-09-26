@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const apiClient = axios.create({
-    baseURL: baseURLforClient,
+    baseURL: "http://team4.eaglesoftwareteam.com/courseapi/", // deployed API URL
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
