@@ -1,7 +1,10 @@
 import axios from "axios"
 
+// API base request URL from environment
+var baseURLforClient = (process.env.NODE_ENV === "development" ? "http://localhost/courseapi/" : "/courseapi/");
+
 const apiClient = axios.create({
-    baseURL: "http://team4.eaglesoftwareteam.com/courseapi/", // deployed API URL
+    baseURL: baseURLforClient,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -9,7 +12,8 @@ const apiClient = axios.create({
         crossDomain: true
     },
     transformRequest: (data, headers) => {
-        let token= localStorage.getCourse('token')
+        // Set authentication for request if user token is valid
+        let token= localStorage.getItem('token')
         let authHeader= ""
         if(token != null && token !="")
             authHeader="Bearer"+token
@@ -18,12 +22,20 @@ const apiClient = axios.create({
     }
 })
 
-export default{
+export default {
     getCourses(){
-        return apiClient.get("courses")
+        return apiClient.get("courses");
     },
-    getCourse(id){
-        return apiClient.get("course/"+ id)
+    getCourse(id) {
+        return apiClient.get("courses/" + id);
+    },
+    updateCourse(id, course) {
+        return apiClient.put("courses/" + id, course);
+    },
+    addCourse(course) {
+        return apiClient.post("courses", course);
+    },
+    deleteCourse(id) {
+        return apiClient.delete("courses/" + id);
     }
-    
 }
