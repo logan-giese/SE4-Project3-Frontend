@@ -2,6 +2,11 @@
 <div>
     <h1>MyCourses - Course List</h1>
     <h3>{{ message }}</h3>
+    <div id="page-buttons">
+        <button v-on:click="prevPage">Prev</button>
+        <button v-on:click="nextPage">Next</button>
+    </div>
+    <br/>
     <table>
         <tr>
             <th class="list-header" width="100px">Number</th>
@@ -23,18 +28,46 @@
         data() {
             return {
                 courses: [],
-                message: "Loading..."
+                message: "Loading...",
+                page: 1
+            }
+        },
+        methods: {
+            getCourseList: function() {
+                CourseServices.getCourses(this.page)
+                .then(response => {
+                    this.courses = response.data
+                    this.message = ""
+                })
+                .catch(error => {
+                    this.message = error.response.data.message
+                })
+            },
+            prevPage: function() {
+                if (this.page > 1) {
+                    this.page -= 1;
+                    // Request previous page
+                    this.getCourseList();
+                    // Update url query
+                    this.$router.push({query: {page: this.page}});
+                }
+            },
+            nextPage: function() {
+                if (this.courses.length > 0) {
+                    this.page += 1;
+                    // Request next page
+                    this.getCourseList();
+                    // Update url query
+                    this.$router.push({query: {page: this.page}});
+                }
             }
         },
         created() {
-            CourseServices.getCourses()
-            .then(response => {
-                this.courses = response.data
-                this.message = ""
-            })
-            .catch(error => {
-                this.message = error.response.data.message
-            })
+            // Get page number from URL
+            if (this.$route.query.page != undefined && this.$route.query.page != "")
+                this.page = parseInt(this.$route.query.page);
+            // Get course list from backend API
+            this.getCourseList();
         }
     }
 </script>
