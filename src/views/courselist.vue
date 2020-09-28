@@ -68,7 +68,12 @@
                 }
             },
             runSearch: function() {
+                // Reset page to one
+                this.page = 1;
+                // Request search results
                 this.getCourseList();
+                // Update url query (page was reset)
+                this.$router.push({query: {page: this.page}});
                 console.log("Searching for courses matching query: "+this.searchQuery);
             }
         },
