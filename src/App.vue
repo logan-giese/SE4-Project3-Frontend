@@ -36,6 +36,7 @@
         margin-left: 8px;
         margin-right: 8px;
         font-size: 15px;
+        cursor: pointer;
         background-color: white;
         border-color: #42b983;
         transition: background-color .2s;
