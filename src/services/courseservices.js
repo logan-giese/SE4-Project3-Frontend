@@ -23,9 +23,10 @@ const apiClient = axios.create({
 })
 
 export default {
-    getCourses(page = 1) {
+    getCourses(page = 1, searchQuery) {
         var perPage = 80; // Number of results per page
-        return apiClient.get("courses?per_page="+perPage+"&page=" + (parseInt(page)-1)*perPage); // Page to offset
+        var search = searchQuery != "" ? "&search="+searchQuery : "";
+        return apiClient.get("courses?per_page="+perPage+"&page=" + (parseInt(page)-1)*perPage + search); // Page to offset
     },
     getCourse(id) {
         return apiClient.get("courses/" + id);

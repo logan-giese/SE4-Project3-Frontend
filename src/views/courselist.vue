@@ -7,6 +7,11 @@
         <button v-on:click="nextPage">Next</button>
     </div>
     <br/>
+    <div id="search-bar">
+        <input type="search" v-model="searchQuery" />
+        <button v-on:click="runSearch">Search</button>
+    </div>
+    <br/>
     <table>
         <tr>
             <th class="list-header" width="100px">Number</th>
@@ -29,12 +34,13 @@
             return {
                 courses: [],
                 message: "Loading...",
-                page: 1
+                page: 1,
+                searchQuery: ""
             }
         },
         methods: {
             getCourseList: function() {
-                CourseServices.getCourses(this.page)
+                CourseServices.getCourses(this.page, this.searchQuery)
                 .then(response => {
                     this.courses = response.data
                     this.message = ""
@@ -60,6 +66,10 @@
                     // Update url query
                     this.$router.push({query: {page: this.page}});
                 }
+            },
+            runSearch: function() {
+                this.getCourseList();
+                console.log("Searching for courses matching query: "+this.searchQuery);
             }
         },
         created() {
