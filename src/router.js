@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import List from "./views/courselist.vue";
-import courseadd from "./components/courseadd.vue";
+import courseadd from "./components/CourseAdd.vue";
 
 Vue.use(Router);
 
