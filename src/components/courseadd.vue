@@ -1,8 +1,10 @@
 <template>
+<div class ='field'>
     <tr>
         <td>
             <input type="text" v-model="course.name">
         </td>
+
         <td>
             <input type="text" v-model="course.description">
         </td>
@@ -13,7 +15,9 @@
             <button @click="addCourse">Save</button>
         </td>
         </tr>
+</div>
 </template>
+
 <script>
 export default {
     data:function(){
