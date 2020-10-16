@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>MyCourses - Course List</h1>
+    <h1>DegreePlan - Course List</h1>
     <h3>{{ message }}</h3>
     <div id="page-buttons">
         <button v-on:click="prevPage">Prev</button>
