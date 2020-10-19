@@ -10,6 +10,25 @@
             <input type="text" v-model="course.number">
         </td>
         <td>
+            <button @click="addCourse">Save</button>
         </td>
         </tr>
 </template>
+<script>
+export default {
+    data:function(){
+        return{
+            course:{}
+        }
+    },
+    methods: {
+        enableEdit: function(){
+            this.editForm=true
+        },
+        addCourse: function() {
+            this.$emit("addCourse", this.course)
+        }
+    }
+    
+}
+</script>
