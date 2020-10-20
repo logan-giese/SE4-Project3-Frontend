@@ -2,7 +2,7 @@
     <div class="submit-form">
         <div v-if="!submitted">
                 <div class="form-group">
-                <label for="number">Number </label>
+                <label for="number"> Number </label>
                 <input
                 class="form-control"
                 id="description"
@@ -12,7 +12,7 @@
                 />
             </div>
             <div class="form-group">
-                <label for="name">Name </label>
+                <label for="name"> Name </label>
                 <input
                 type="text"
                 class="form-control"
@@ -22,15 +22,24 @@
                 name="name"
                 />
             </div>
-            
             <div class="form-group">
-                <label for="description">Description </label>
+                <label for="department"> Department </label>
                 <input
                 class="form-control"
-                id="description"
+                id="department"
                 required
-                v-model="course.description"
-                name="description"
+                v-model="course.department"
+                name="department"
+                />
+            </div>
+                <div class="form-group">
+                <label for="hours"> Hours </label>
+                <input
+                class="form-control"
+                id="hours"
+                required
+                v-model="course.hours"
+                name="hours"
                 />
             </div>
         
@@ -61,10 +70,14 @@ export default {
     methods: {
         saveCourse(){
             var data ={
-                title: this.course.title,
-                description: this.course.description
+                name: this.course.name,
+                department: this.course.department,
+                number: this.course.number,
+                hours: this.course.hours
+
+
             };
-            courseservices.create(data)
+            courseservices.addCourse(data)
             .then(response=>{
                 this.course.id=response.data.id;
                 console.log(response.data);

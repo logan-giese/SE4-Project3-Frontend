@@ -28,7 +28,7 @@ export default {
         var search = searchQuery != "" ? "&search="+searchQuery : "";
         return apiClient.get("courses?per_page="+perPage+"&page=" + (parseInt(page)-1)*perPage + search); // Page to offset
     },
-    getCourse(id) {
+    getCourseById(id) {
         return apiClient.get("courses/" + id);
     },
     updateCourse(id, course) {

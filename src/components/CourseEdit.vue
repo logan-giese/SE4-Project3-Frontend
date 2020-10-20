@@ -1,3 +1,4 @@
+
 <template>
     <div v-if="currentCourse" class="edit-form">
         <h4>Course Edit</h4>
@@ -9,13 +10,13 @@
                 />
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" class="form-control" id="description"
-                v-model="currentCourse.description"
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name"
+                v-model="currentCourse.name"
                 />
             </div>
             <div class="form-group">
-                <label><Status:></label>
+                <label>Status:</label>
                 {{currentCourse.published ? "Published": "Pending"}}
             </div>
         </form>
@@ -51,6 +52,7 @@
  import courseservices from "../services/courseservices";
  export default{
      name:"course",
+     props: ['id'],
      data(){
          return{
              currentCourse: null,
@@ -59,10 +61,10 @@
      },
      methods:{
          getCourse(id){
-             courseservices.get(id)
+             courseservices.getCourseById(id)
              .then(response=>{
-                 this.currentCourse=response.data;
-                 console.log(response.data);
+                 this.currentCourse=response.data[0];
+                 console.log("course="+response.data);
              })
              .catch(e=>{
                  console.log(e);
@@ -86,20 +88,10 @@
                  console.log(e);
              });
          },
-         updateCourse(){
-             courseservices.update(this.currentCourse.id, this.currentCourse)
-             .then(response=>{
-                 console.log(response.data);
-                 this.message='Course updated successfully';
-             })
-             .catch(e=>{
-                 console.log(e);
-             });
-         }
      },
          mounted(){
              this.message='';
-             this.getCourse(this.$route.params.id);
+             this.getCourse(this.id);
 
          }
  };

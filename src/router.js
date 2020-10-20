@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import List from "./views/courselist.vue";
 import courseadd from "./components/CourseAdd.vue";
+import courseedit from "./components/CourseEdit.vue";
 
 Vue.use(Router);
 
@@ -19,6 +20,13 @@ export default new Router ({
         path:"/add",
         name: "add",
         component: courseadd
+    },
+    {
+        path:"/edit",
+        name: "edit",
+        component: courseedit,
+        props:true
+
     }
 
     ]
