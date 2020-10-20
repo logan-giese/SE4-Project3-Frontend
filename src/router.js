@@ -4,6 +4,7 @@ import CourseList from "./views/courselist.vue";
 import courseadd from "./components/courseadd.vue";
 import CourseView from "./views/courseview.vue";
 import deletecourse from "./views/coursedelete.vue";
+import courseedit from "./components/CourseEdit.vue";
 
 Vue.use(Router);
 
@@ -33,6 +34,12 @@ export default new Router ({
         name: "delete-course",
         component: deletecourse,
         props: true
+    },
+    {
+        path:"/edit",
+        name: "edit",
+        component: courseedit,
+        props:true
     }
 
     ]

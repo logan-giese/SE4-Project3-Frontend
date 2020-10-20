@@ -2,6 +2,7 @@
 <tr class="list-item">
     <td>{{ course.number }}</td>
     <td>{{ course.name }}</td>
+    <td>{{course.id}}</td>
     <td>
         <router-link :to="{ name: 'view-course', params: { id: course.course_id } }">
             <span>View</span>
@@ -24,6 +25,7 @@
             course: Object
         }
     }
+    
 </script>
 
 <style></style>
