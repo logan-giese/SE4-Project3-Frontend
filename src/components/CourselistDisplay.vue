@@ -3,7 +3,7 @@
     <td>{{ course.number }}</td>
     <td>{{ course.name }}</td>
     <td>
-        <router-link :to="{ name: 'view', params: { id: course.id } }">
+        <router-link :to="{ name: 'view-course', params: { id: course.id } }">
             <span>View</span>
         </router-link>
         <span> | </span>

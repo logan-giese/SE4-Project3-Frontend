@@ -1,21 +1,22 @@
-# se4-project2
+# SE4 Project 3 - Frontend
+A frontend made with Vue and Node.js for a university degree plan application.
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile and start hot-reload server for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compile and minify for production
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lint and fix files
 ```
 npm run lint
 ```
