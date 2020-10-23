@@ -1,18 +1,18 @@
 
 <template>
     <div v-if="currentCourse" class="edit-form">
-        <h4>Course Edit</h4>
+        <h4>Degree Edit</h4>
         <form>
             <div class="form-group">
                 <label for="number">Number</label>
                 <input type="text" class="form-control" id="number"
-                v-model="currentCourse.number"
+                v-model="currentDegree.number"
                 />
             </div>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name"
-                v-model="currentCourse.name"
+                v-model="currentDegree.name"
                 />
             </div>
             <div class="form-group">
@@ -20,12 +20,17 @@
                 {{currentCourse.published ? "Published": "Pending"}}
             </div>
         </form>
-        <button class="badge badge-danger mr-2"
-        @click="onCancel"
+        <button class="badge badge-primary mr-2"
+        v-if="currentCourse.published"
+        @click="updatedPublished(false)"
         >
-        Cancel
+        UnPublish
         </button>
-        
+        <button v-else class="badge badge-primary mr-2"
+        @click="updatePublished(true)"
+        >
+        Published
+        </button>
         <button class="badge badge-danger mr-2"
         @click="deleteCourse"
         >
@@ -66,6 +71,13 @@
              });
              
          },
+         onCancel(){
+        console.log('CANCEL SUBMIT');
+        this.show = false;
+        this.$router.push({ name: 'users' });
+        
+        },
+
          updateCourse(status){
              var data={
                  number: this.currentCourse.id,
