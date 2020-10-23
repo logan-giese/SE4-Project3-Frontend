@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label>Status:</label>
-                {{currentCourse.published ? "Published": "Pending"}}
+                {{currentCourse.published ? "Updated": "Pending"}}
             </div>
         </form>
         <button class="badge badge-danger mr-2"
