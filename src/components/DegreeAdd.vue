@@ -56,7 +56,7 @@ export default {
     methods: {
         saveDegree(){
             var data ={
-                name: this.course.name,
+                name: this.degree.name,
 
 
             };
