@@ -2,7 +2,11 @@
 <div id="app">
     <div id="nav">
         <router-link to="/">Course List</router-link> |
-        <router-link to="/add">Add Course</router-link>
+        <router-link to="/student-list">Student List</router-link> |
+        <router-link to="/add-course">Add Course</router-link> |
+        <router-link to="/degree-list">Degree List</router-link> |
+        <router-link to="/add-degree">Add Degree</router-link>
+        
     </div>
     <router-view />
     </div>
