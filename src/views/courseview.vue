@@ -5,7 +5,7 @@
     
     <button v-on:click="$router.go(-1)">Back</button>
     <router-link :to="{ name: 'edit-course', params: { id: course.id } }" tag="button">Edit</router-link>
-    <router-link :to="{ name: 'delete-course', params: { id: course.id } }" tag="button">Delete</router-link>
+    <router-link :to="{ name: 'delete', params: { id: course.id } }" tag="button">Delete</router-link>
     <br/><br/>
     
     <table>
