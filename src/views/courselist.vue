@@ -18,7 +18,7 @@
             <th class="list-header" width="540px">Name</th>
             <th class="list-header" width="142px">Actions</th>
         </tr>
-        <CourselistDisplay v-for="course in courses" :key="course.id" :course="course" />
+        <CourselistDisplay v-for="course in courses" :key="course.course_id" :course="course" />
     </table>
 </div>
 </template>
