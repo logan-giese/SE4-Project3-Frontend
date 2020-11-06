@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // API base request URL from environment
-var baseURLforClient = (process.env.NODE_ENV === "development" ? "http://localhost/studentapi/" : "/courseapi/");
+var baseURLforClient = (process.env.NODE_ENV === "development" ? "http://localhost/courseapi/" : "/courseapi/");
 
 const apiClient = axios.create({
     baseURL: baseURLforClient,

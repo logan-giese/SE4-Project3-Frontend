@@ -1,6 +1,5 @@
 <template>
 <tr class="list-item">
-    <td>{{ student.number }}</td>
     <td>{{ student.name }}</td>
     <td>{{student.id}}</td>
     <td>
