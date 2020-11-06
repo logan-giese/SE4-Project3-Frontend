@@ -11,7 +11,7 @@
             <span>Edit</span>
         </router-link>
         <span> | </span>
-        <router-link :to="{ name: 'delete', params: { id: course.id } }">
+        <router-link :to="{ name: 'delete-course', params: { id: course.id } }">
             <span>Delete</span>
         </router-link>
     </td>
