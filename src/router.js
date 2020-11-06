@@ -29,8 +29,8 @@ export default new Router ({
         props: true
     },
     {
-        path: "/delete/:id",
-        name: "delete",
+        path: "/course-delete/:id",
+        name: "delete-course",
         component: deletecourse,
         props: true
     }
