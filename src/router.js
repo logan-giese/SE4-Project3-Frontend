@@ -1,13 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
 import CourseList from "./views/courselist.vue";
+import CourseAdd from "./views/course/CourseAdd.vue";
+import CourseView from "./views/course/CourseView.vue";
+import CourseDelete from "./views/course/CourseDelete.vue";
+import CourseEdit from "./views/course/CourseEdit.vue";
 import StudentList from "./views/studentlist.vue";
-import courseadd from "./components/courseadd.vue";
-import CourseView from "./views/courseview.vue";
-import deletecourse from "./views/coursedelete.vue";
-import courseedit from "./components/CourseEdit.vue";
-import degreeadd from "./components/DegreeAdd.vue";
-import studentadd from "./components/StudentAdd.vue";
+import StudentAdd from "./views/student/StudentAdd.vue";
+import DegreeAdd from "./views/degree/DegreeAdd.vue";
 
 Vue.use(Router);
 
@@ -24,7 +24,7 @@ export default new Router ({
     {
         path:"/add-course",
         name: "add-course",
-        component: courseadd
+        component: CourseAdd
     },
     {
         path: "/course/:id",
@@ -35,20 +35,14 @@ export default new Router ({
     {
         path: "/course-delete/:id",
         name: "delete-course",
-        component: deletecourse,
+        component: CourseDelete,
         props: true
     },
     {
         path:"/edit-course",
         name: "edit-course",
-        component: courseedit,
+        component: CourseEdit,
         props:true
-
-    },
-    {
-        path:"/add-degree",
-        name: "add-degree",
-        component: degreeadd
     },
     {
         path:"/students",
@@ -58,8 +52,13 @@ export default new Router ({
     {
         path:"/add-student",
         name: "add-student",
-        component: studentadd
-    }
+        component: StudentAdd
+    },
+    {
+        path:"/add-degree",
+        name: "add-degree",
+        component: DegreeAdd
+    },
 
     ]
 })
