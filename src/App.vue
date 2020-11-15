@@ -1,9 +1,9 @@
 <template>
 <div id="app">
     <div id="nav">
-        <router-link to="/">Courses</router-link> |
-        <router-link to="/student-list">Students</router-link> |
-        <router-link to="/degree-list">Degrees</router-link> |
+        <router-link to="/courses">Courses</router-link> |
+        <router-link to="/students">Students</router-link> |
+        <router-link to="/degrees">Degrees</router-link> |
         <router-link to="/add-course">Add Course</router-link> |
         <router-link to="/add-degree">Add Degree</router-link>
         

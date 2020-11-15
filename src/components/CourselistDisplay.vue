@@ -2,13 +2,12 @@
 <tr class="list-item">
     <td>{{ course.number }}</td>
     <td>{{ course.name }}</td>
-    <td>{{course.id}}</td>
     <td>
         <router-link :to="{ name: 'view-course', params: { id: course.course_id } }">
             <span>View</span>
         </router-link>
         <span> | </span>
-        <router-link :to="{ name: 'edit', params: { id: course.course_id } }">
+        <router-link :to="{ name: 'edit-course', params: { id: course.course_id } }">
             <span>Edit</span>
         </router-link>
         <span> | </span>

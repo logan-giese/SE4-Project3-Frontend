@@ -44,7 +44,7 @@
     </div>
 </template>
  <script>
- import courseservices from "../services/courseservices";
+ import CourseServices from '@/services/courseservices.js'
  export default{
      name:"course",
      props: ['id'],
@@ -56,7 +56,7 @@
      },
      methods:{
          getCourse(id){
-             courseservices.getCourseById(id)
+             CourseServices.getCourse(id)
              .then(response=>{
                  this.currentCourse=response.data[0];
                  console.log("course="+response.data);
@@ -73,7 +73,7 @@
                  description:this.currentCourse.description,
                  published: status
              };
-             courseservices.update(this.currentCourse.id,data)
+             CourseServices.updateCourse(this.currentCourse.id,data)
              .then(response=>{
                  this.currentCourse.published=status;
                  console.log(response.data);

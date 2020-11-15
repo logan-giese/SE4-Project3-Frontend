@@ -49,7 +49,7 @@
     </div>
 </template>
  <script>
- import courseservices from "../services/courseservices";
+ import CourseServices from '@/services/courseservices.js'
  export default{
      name:"course",
      props: ['id'],
@@ -85,7 +85,7 @@
                  description:this.currentCourse.description,
                  published: status
              };
-             courseservices.update(this.currentCourse.id,data)
+             CourseServices.updateCourse(this.currentCourse.id,data)
              .then(response=>{
                  this.currentCourse.published=status;
                  console.log(response.data);

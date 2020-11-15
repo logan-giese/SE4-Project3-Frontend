@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>MyStudents - Student List</h1>
+    <h1>DegreePlan - Student List</h1>
     <h3>{{ message }}</h3>
     <div id="page-buttons">
         <button v-on:click="prevPage">Prev</button>
@@ -14,18 +14,19 @@
     <br/>
     <table>
         <tr>
-            <th class="list-header" width="100px">Number</th>
-            <th class="list-header" width="540px">Name</th>
+            <th class="list-header" width="90px">ID</th>
+            <th class="list-header" width="250px">Name</th>
+            <th class="list-header" width="250px">Major</th>
             <th class="list-header" width="142px">Actions</th>
         </tr>
-        <StudentListDisplay v-for="student in students" :key="student.id" :student="student" />
+        <StudentListDisplay v-for="student in students" :key="student.student_id" :student="student" />
     </table>
 </div>
 </template>
 
 <script>
     import StudentListDisplay from '@/components/StudentListDisplay.vue'
-    import StudentServices from '@/services/StudentServices.js'
+    import CourseServices from '@/services/courseservices.js'
     export default {
         components: {
             StudentListDisplay
@@ -40,7 +41,7 @@
         },
         methods: {
             getStudentList: function() {
-                StudenteServices.getStudents(this.page, this.searchQuery)
+                CourseServices.getStudents(this.page, this.searchQuery)
                 .then(response => {
                     this.students = response.data
                     this.message = ""
@@ -74,14 +75,14 @@
                 this.getStudentList();
                 // Update url query (page was reset)
                 this.$router.push({query: {page: this.page}});
-                console.log("Searching for courses matching query: "+this.searchQuery);
+                console.log("Searching for students matching query: "+this.searchQuery);
             }
         },
         created() {
             // Get page number from URL
             if (this.$route.query.page != undefined && this.$route.query.page != "")
                 this.page = parseInt(this.$route.query.page);
-            // Get course list from backend API
+            // Get student list from backend API
             this.getStudentList();
         }
     }

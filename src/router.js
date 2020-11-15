@@ -1,13 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
 import CourseList from "./views/courselist.vue";
+import StudentList from "./views/studentlist.vue";
 import courseadd from "./components/courseadd.vue";
 import CourseView from "./views/courseview.vue";
 import deletecourse from "./views/coursedelete.vue";
 import courseedit from "./components/CourseEdit.vue";
 import degreeadd from "./components/DegreeAdd.vue";
 import studentadd from "./components/StudentAdd.vue";
-import studentlist from "./components/StudentListDisplay.vue";
 
 Vue.use(Router);
 
@@ -17,8 +17,8 @@ export default new Router ({
     base: process.env.NODE_ENV === "development" ? "/" : "/degreeplan/",
     
     routes: [{
-        path: "/",
-        name: "list",
+        path: "/courses",
+        name: "list-courses",
         component: CourseList
     },
     {
@@ -40,7 +40,7 @@ export default new Router ({
     },
     {
         path:"/edit-course",
-        name: "edit",
+        name: "edit-course",
         component: courseedit,
         props:true
 
@@ -51,14 +51,14 @@ export default new Router ({
         component: degreeadd
     },
     {
-        path:"/student-add",
-        name: "student-add",
-        component: studentadd
+        path:"/students",
+        name:"list-students",
+        component: StudentList
     },
     {
-        path:"/student-list",
-        name:"student-list",
-        component: studentlist
+        path:"/add-student",
+        name: "add-student",
+        component: studentadd
     }
 
     ]

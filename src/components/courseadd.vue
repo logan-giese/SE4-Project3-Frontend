@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import courseservices from "../services/courseservices";
+import CourseServices from '@/services/courseservices.js'
 export default {
     name: "add-course",
     data(){
@@ -77,7 +77,7 @@ export default {
 
 
             };
-            courseservices.addCourse(data)
+            CourseServices.addCourse(data)
             .then(response=>{
                 this.course.id=response.data.id;
                 console.log(response.data);
