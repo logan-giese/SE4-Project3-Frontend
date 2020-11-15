@@ -39,10 +39,10 @@ export default new Router ({
         props: true
     },
     {
-        path:"/edit-course",
+        path:"/edit-course/:id",
         name: "edit-course",
         component: CourseEdit,
-        props:true
+        props: true
     },
     {
         path:"/students",
