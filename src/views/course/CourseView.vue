@@ -33,14 +33,6 @@
             <td>Hours</td>
             <td>{{ course.hours }}</td>
         </tr>
-        <tr>
-            <td>Level</td>
-            <td>{{ course.level }}</td>
-        </tr>
-        <tr>
-            <td>Term</td>
-            <td>{{ course.term_start }}</td>
-        </tr>
     </table>
 </div>    
 </template>

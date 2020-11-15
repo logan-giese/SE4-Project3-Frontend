@@ -5,6 +5,7 @@
         <router-link to="/students">Students</router-link> |
         <router-link to="/degrees">Degrees</router-link> |
         <router-link to="/add-course">Add Course</router-link> |
+        <router-link to="/add-student">Add Student</router-link> |
         <router-link to="/add-degree">Add Degree</router-link>
         
     </div>
