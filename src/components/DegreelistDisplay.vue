@@ -1,17 +1,17 @@
 <template>
 <tr class="list-item">
-    <td>{{ course.number }}</td>
-    <td>{{ course.name }}</td>
+    <td>{{ degree.plan_id }}</td>
+    <td>{{ degree.plan_name }}</td>
     <td>
-        <router-link :to="{ name: 'view-course', params: { id: course.course_id } }">
+        <router-link :to="{ name: 'view-degree', params: { id: degree.plan_id } }">
             <span>View</span>
         </router-link>
         <span> | </span>
-        <router-link :to="{ name: 'edit-course', params: { id: course.course_id } }">
+        <router-link :to="{ name: 'edit-degree', params: { id: degree.plan_id } }">
             <span>Edit</span>
         </router-link>
         <span> | </span>
-        <router-link :to="{ name: 'delete-course', params: { id: course.course_id } }">
+        <router-link :to="{ name: 'delete-degree', params: { id: degree.plan_id } }">
             <span>Delete</span>
         </router-link>
     </td>
@@ -21,10 +21,9 @@
 <script>
     export default {
         props: {
-            course: Object
+            degree: Object
         }
     }
-    
 </script>
 
 <style></style>
