@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import HomePage from "./views/Home.vue";
 import CourseList from "./views/courselist.vue";
 import CourseAdd from "./views/course/CourseAdd.vue";
 import CourseView from "./views/course/CourseView.vue";
@@ -16,7 +17,13 @@ export default new Router ({
     mode: "history",
     base: process.env.NODE_ENV === "development" ? "/" : "/degreeplan/",
     
-    routes: [{
+    routes: [
+    {
+        path: "/",
+        name: "home",
+        component: HomePage
+    },
+    {
         path: "/courses",
         name: "list-courses",
         component: CourseList
@@ -58,7 +65,7 @@ export default new Router ({
         path:"/add-degree",
         name: "add-degree",
         component: DegreeAdd
-    },
+    }
 
     ]
 })
