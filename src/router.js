@@ -4,6 +4,7 @@ import CourseList from "./views/courselist.vue";
 import courseadd from "./components/courseadd.vue";
 import CourseView from "./views/courseview.vue";
 import deletecourse from "./views/coursedelete.vue";
+import advisorview from "./views/advisorview.vue";
 
 Vue.use(Router);
 
@@ -32,6 +33,12 @@ export default new Router ({
         path: "/course-delete/:id",
         name: "delete-course",
         component: deletecourse,
+        props: true
+    },
+    {
+        path: "/advisor/:id",
+        name: "view-advisor",
+        component: advisorview,
         props: true
     }
 
