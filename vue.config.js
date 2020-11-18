@@ -6,5 +6,5 @@ module.exports = {
     publicPath:
         process.env.NODE_ENV === 'development'
         ? '/'
-        : '/mycourses-vue/' // use /mycourses-vue/dist if testing locally
+        : '/degreeplan/' // use /degreeplan/dist if testing build locally
 }

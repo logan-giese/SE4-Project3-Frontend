@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>DegreePlan - Course List</h1>
+    <h1>DegreePlan - Student List</h1>
     <h3>{{ message }}</h3>
     <div id="page-buttons">
         <button v-on:click="prevPage">Prev</button>
@@ -14,35 +14,36 @@
     <br/>
     <table>
         <tr>
-            <th class="list-header" width="100px">Number</th>
-            <th class="list-header" width="540px">Name</th>
+            <th class="list-header" width="90px">ID</th>
+            <th class="list-header" width="250px">Name</th>
+            <th class="list-header" width="250px">Major</th>
             <th class="list-header" width="142px">Actions</th>
         </tr>
-        <CourselistDisplay v-for="course in courses" :key="course.course_id" :course="course" />
+        <StudentListDisplay v-for="student in students" :key="student.student_id" :student="student" />
     </table>
 </div>
 </template>
 
 <script>
-    import CourselistDisplay from '@/components/CourselistDisplay.vue'
+    import StudentListDisplay from '@/components/StudentListDisplay.vue'
     import CourseServices from '@/services/courseservices.js'
     export default {
         components: {
-            CourselistDisplay
+            StudentListDisplay
         },
         data() {
             return {
-                courses: [],
+                students: [],
                 message: "Loading...",
                 page: 1,
                 searchQuery: ""
             }
         },
         methods: {
-            getCourseList: function() {
-                CourseServices.getCourses(this.page, this.searchQuery)
+            getStudentList: function() {
+                CourseServices.getStudents(this.page, this.searchQuery)
                 .then(response => {
-                    this.courses = response.data
+                    this.students = response.data
                     this.message = ""
                 })
                 .catch(error => {
@@ -53,16 +54,16 @@
                 if (this.page > 1) {
                     this.page -= 1;
                     // Request previous page
-                    this.getCourseList();
+                    this.getStudentList();
                     // Update url query
                     this.$router.push({query: {page: this.page}});
                 }
             },
             nextPage: function() {
-                if (this.courses.length > 0) {
+                if (this.students.length > 0) {
                     this.page += 1;
                     // Request next page
-                    this.getCourseList();
+                    this.getStudentList();
                     // Update url query
                     this.$router.push({query: {page: this.page}});
                 }
@@ -71,18 +72,18 @@
                 // Reset page to one
                 this.page = 1;
                 // Request search results
-                this.getCourseList();
+                this.getStudentList();
                 // Update url query (page was reset)
                 this.$router.push({query: {page: this.page}});
-                console.log("Searching for courses matching query: "+this.searchQuery);
+                console.log("Searching for students matching query: "+this.searchQuery);
             }
         },
         created() {
             // Get page number from URL
             if (this.$route.query.page != undefined && this.$route.query.page != "")
                 this.page = parseInt(this.$route.query.page);
-            // Get course list from backend API
-            this.getCourseList();
+            // Get student list from backend API
+            this.getStudentList();
         }
     }
 </script>
