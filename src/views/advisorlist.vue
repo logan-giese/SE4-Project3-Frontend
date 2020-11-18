@@ -18,17 +18,17 @@
             <th class="list-header" width="540px">Name</th>
             <th class="list-header" width="142px">Actions</th>
         </tr>
-        <AdvisorListDisplay v-for='advisor in advisors' :key="advisor.advisor_id" :advisor="advisor" />
+        <CourselistDisplay v-for='advisor in advisors' :key="advisor.advisor_id" :advisor="advisor" />
     </table>
 </div>
 </template>
 
 <script>
-    import AdvisorListDisplay from '@/components/AdvisorListDisplay.vue'
+    import CourselistDisplay from '@/components/CourselistDisplay.vue'
     import CourseServices from '@/services/courseservices.js'
     export default {
         components: {
-            AdvisorListDisplay
+            CourselistDisplay
         },
         data() {
             return {
